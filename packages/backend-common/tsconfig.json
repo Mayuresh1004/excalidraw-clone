@@ -2,7 +2,7 @@
     "extends": "@repo/typescript-config/base.json",
     "compilerOptions": {
         "outDir": "./dist",
-        "rootDir": "./config",
+        "rootDir": "src/config",
         "noEmit": false,
         "allowImportingTsExtensions": false
     }

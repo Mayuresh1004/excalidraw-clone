@@ -1,8 +1,8 @@
 import express from "express";
 import { authMiddleware } from "./middleware.js";
-import { JWT_SECRET } from "@repo/backend-common";
+import { JWT_SECRET } from '@repo/backend-common';
 import jwt from "jsonwebtoken";
-import { prisma } from "@repo/db/lib/prisma.ts";
+import { prisma } from "@repo/db";
 import bcrypt from "bcryptjs";
 import { CreateUserSchema, SigninSchema } from '@repo/common';
 import "dotenv/config";

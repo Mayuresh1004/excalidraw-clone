@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
     "module": "ESNext",
-    "moduleResolution": "bundler",
-    "target": "ES2023",
-    "strict": true,
+    "moduleResolution": "Bundler",
+
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src",
+
     "esModuleInterop": true,
-    "ignoreDeprecations": "6.0",
-    "rootDir": "./lib",
-    "outDir": "./dist",
-  }
+    "skipLibCheck": true
+  },
+  "include": ["src"]
 }

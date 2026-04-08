@@ -6,8 +6,8 @@
     ".": "./dist/lib/prisma.js"
   },
   "scripts": {
-    "build": "tsc"
-  },
+  "build": "tsc "
+},
   "private": true,
   "devDependencies": {
     "@types/bun": "latest",
