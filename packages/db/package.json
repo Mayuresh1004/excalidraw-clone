@@ -1,0 +1,23 @@
+{
+  "name": "@repo/db",
+  "type": "module",
+  "main": "./dist/lib/prisma.js",
+  "exports": {
+    ".": "./dist/lib/prisma.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.5.2",
+    "tsx": "^4.21.0"
+  },
+  "peerDependencies": {
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.1"
+  }
+}
