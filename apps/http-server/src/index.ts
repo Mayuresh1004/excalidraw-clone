@@ -11,8 +11,11 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+
 app.post("/signup", async (req, res) => {
   try {
+
+    
     const result = CreateUserSchema.safeParse(req.body);
 
     if (!result.success) {
