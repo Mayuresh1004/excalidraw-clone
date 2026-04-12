@@ -4,7 +4,7 @@ import { JWT_SECRET } from '@repo/backend-common';
 import jwt from "jsonwebtoken";
 import { prisma } from "@repo/db";
 import bcrypt from "bcryptjs";
-import { CreateUserSchema, SigninSchema } from '@repo/common';
+import { CreateRoomSchema, CreateUserSchema, SigninSchema } from '@repo/common';
 import "dotenv/config";
 
 const app = express();
@@ -92,9 +92,29 @@ app.post("/signin", async (req, res) => {
   
 });
 
-app.post('/room', authMiddleware, (req, res) => {
+app.post('/room', authMiddleware, async (req, res) => {
 
-  res.json({ roomId: "1234" });
+  const parsedData = CreateRoomSchema.safeParse(req.body);
+  
+  if (!parsedData.success) {
+    return res.status(400).json({ error: parsedData.error.issues });
+  }
+  //@ts-ignore
+  const userId = req.userId;
+
+  try {
+    const room = await prisma.room.create({
+    data:{
+      slug: parsedData.data?.name,
+      adminId: userId,
+    }
+  })
+  res.json({ roomId: room.id });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+
 
 });
 
