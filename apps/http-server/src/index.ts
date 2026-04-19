@@ -118,6 +118,29 @@ app.post('/room', authMiddleware, async (req, res) => {
 
 });
 
+app.get('/chats/:roomId', authMiddleware, async (req, res) => {
+  const { roomId } = req.params;
+  try {
+    const chats = await prisma.chat.findMany({
+      where: {
+        //@ts-ignore
+        roomId: parseInt(roomId)
+      },
+      include: {
+        user: true
+      },
+      orderBy: {
+          id: 'desc'
+      },
+      take: 50
+    });
+    res.json({ chats });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`HTTP backend is running at http://localhost:${port}`);

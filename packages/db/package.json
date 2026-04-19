@@ -8,7 +8,7 @@
   "scripts": {
   "build": "tsc "
 },
-  "private": true,
+  "private": false,
   "devDependencies": {
     "@types/bun": "latest",
     "@types/node": "^25.5.2",

@@ -4,6 +4,9 @@
         "rootDir": "./src",
         "outDir": "./dist",
         "noEmit": false,
-        "allowImportingTsExtensions": false
+        "allowImportingTsExtensions": false,
+        "paths": {
+            "@repo/*": ["../../packages/*/src"]
+        }
     }
 }
